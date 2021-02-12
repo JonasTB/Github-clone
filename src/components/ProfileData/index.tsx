@@ -52,7 +52,7 @@ const ProfileData: React.FC<Props> = ({
           <PeopleIcon />
           <b>{followers}</b>
           <span>followers</span>
-          <span>*</span>
+          <span>·</span>
         </li>
 
         <li>

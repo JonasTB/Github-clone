@@ -9,17 +9,22 @@ export const Container = styled.div`
 `;
 
 export const GithubLogo = styled(FaGithub)`
-fill: var(--logo);
-width: 32px;
-height: 32px;
-flex-shrink: 0;
+  fill: var(--logo);
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+  }
 `;
 
 export const SearchForm = styled.div`
-padding-left: 16px;
-width: 100%;
+  padding-left: 16px;
+  width: 100%;
 
-input {
+  input {
     background: var(--search);
     outline: 0;
     border-radius: 6px;
@@ -27,9 +32,9 @@ input {
     width: 100%;
 
     &:focus {
-        width: 318px;
+      width: 318px;
     }
 
-    transition: width .2s ease-out, color .2s ease-out;
-}
+    transition: width 0.2s ease-out, color 0.2s ease-out;
+  }
 `;

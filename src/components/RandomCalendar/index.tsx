@@ -1,11 +1,10 @@
 import React from 'react';
-
 import Heatmap from 'react-calendar-heatmap';
-import { subYears, isBefore, isSameDay, addDays } from 'date-fns'
+import { subYears, isBefore, isSameDay, addDays } from 'date-fns';
 
 import { Container } from './styles';
 
-type HeatMapValue = { date: Date, count: number }
+type HeatmapValue = { date: Date; count: number };
 
 const RandomCalendar: React.FC = () => {
     const startDate = subYears(new Date(), 1);
@@ -17,29 +16,29 @@ const RandomCalendar: React.FC = () => {
                 <Heatmap
                     startDate={startDate}
                     endDate={endDate}
-                    values={generateHeatMapValues(startDate, endDate)}
+                    values={generateHeatmapValues(startDate, endDate)}
                     gutterSize={3.5}
-                    classForValue={(item: HeatMapValue) => {
+                    classForValue={(item: HeatmapValue) => {
                         let clampedCount = 0;
 
-                        if (item != null) {
+                        if (item !== null) {
                             clampedCount = Math.max(item.count, 0);
                             clampedCount = Math.min(item.count, 4);
                         }
 
-                        return `scale=${clampedCount}`
+                        return `scale-${clampedCount}`;
                     }}
-
                     showWeekdayLabels
                 />
             </div>
+
             <span>Random calendar (do not represent actual data)</span>
         </Container>
-    )
-}
+    );
+};
 
-const generateHeatMapValues = (startDate: Date, endDate: Date) => {
-    const values: HeatMapValue[] = [];
+const generateHeatmapValues = (startDate: Date, endDate: Date) => {
+    const values: HeatmapValue[] = [];
 
     let currentDate = startDate;
     while (isBefore(currentDate, endDate) || isSameDay(currentDate, endDate)) {
@@ -51,6 +50,6 @@ const generateHeatMapValues = (startDate: Date, endDate: Date) => {
     }
 
     return values;
-}
+};
 
 export default RandomCalendar;
